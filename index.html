@@ -125,6 +125,25 @@ p{line-height:1.75;color:var(--gyd)}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
 .nav-links a{display:block;padding:8px 14px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;border-radius:var(--r);transition:all var(--t)}
 .nav-links a:hover{color:var(--grn);background:rgba(255,255,255,.06)}
+
+/* Dropdown */
+.nav-links .has-dropdown{position:relative}
+.nav-links .has-dropdown>a{display:flex;align-items:center;gap:5px}
+.nav-links .has-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid rgba(255,255,255,.5);transition:transform var(--t)}
+.nav-links .has-dropdown:hover>a::after{transform:rotate(180deg);border-top-color:var(--grn)}
+.dropdown-menu{
+  display:none;position:absolute;top:calc(100% + 8px);left:0;
+  background:rgba(10,10,10,.98);border:1px solid rgba(29,185,84,.18);
+  border-radius:var(--rl);padding:8px;min-width:160px;
+  box-shadow:var(--s3);z-index:200;
+}
+.nav-links .has-dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu a{
+  display:block;padding:10px 14px;font-size:13.5px;font-weight:500;
+  color:rgba(255,255,255,.7);text-decoration:none;border-radius:var(--r);
+  transition:all var(--t);white-space:nowrap;
+}
+.dropdown-menu a:hover{color:var(--grn);background:rgba(29,185,84,.08)}
 .nav-cta{flex-shrink:0}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
 .hamburger span{display:block;width:24px;height:2px;background:var(--wht);border-radius:2px;transition:all var(--t)}
@@ -491,7 +510,14 @@ footer{background:#050505;color:var(--wht);padding:64px 0 0}
       <ul class="nav-links">
         <li><a href="#domenic">Meet Domenic</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#process">Our Process</a></li>
+        <li class="has-dropdown">
+          <a href="#" onclick="return false">Documents</a>
+          <div class="dropdown-menu">
+            <a href="#" onclick="return false">Form 1</a>
+            <a href="#" onclick="return false">Form 2</a>
+            <a href="#" onclick="return false">Form 3</a>
+          </div>
+        </li>
         <li><a href="#lenders">Lenders</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -504,7 +530,10 @@ footer{background:#050505;color:var(--wht);padding:64px 0 0}
 <div class="mobile-menu" id="mobile-menu">
   <a href="#domenic" onclick="closeMobile()">Meet Domenic</a>
   <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#process" onclick="closeMobile()">Our Process</a>
+  <a href="#" onclick="return false" style="color:rgba(255,255,255,.85);font-weight:600">Documents</a>
+  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 1</a>
+  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 2</a>
+  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 3</a>
   <a href="#lenders" onclick="closeMobile()">Lenders</a>
   <a href="#who" onclick="closeMobile()">Who We Help</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
