@@ -221,9 +221,9 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
 /* ABOUT */
 #about{background:var(--wht)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-logo-card{background:#000;border-radius:var(--rl);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;padding:56px 40px;min-height:300px}
-.about-logo-card img.logo-img{width:200px;height:auto;display:block;position:relative;z-index:1}
-.card-globe-bg{position:absolute;inset:0;width:100%;height:100%;opacity:.14;pointer-events:none}
+.about-logo-card{background:linear-gradient(135deg,#f5faf6 0%,#e8f5ec 100%);border:1px solid rgba(38,181,115,.15);border-radius:var(--rl);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;padding:56px 40px;min-height:340px}
+.about-logo-card img.logo-img{width:280px;height:auto;display:block;position:relative;z-index:1;filter:drop-shadow(0 4px 16px rgba(38,181,115,.15))}
+.card-globe-bg{position:absolute;inset:0;width:100%;height:100%;opacity:.08;pointer-events:none}
 .about-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
 .about-stat-chip{background:var(--off);border-radius:var(--rl);padding:18px 14px;text-align:center;border:1px solid var(--gl)}
 .about-stat-num{font-family:'Nunito',sans-serif;font-size:1.9rem;font-weight:700;color:var(--blk);line-height:1}
@@ -414,10 +414,6 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
 /* FOOTER */
 footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07)}
-.ft-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:14px;text-decoration:none}
-.ft-logo-wrap img{height:42px;width:42px;border-radius:50%;object-fit:cover;background:#000}
-.ft-logo-wrap .wm{font-family:'Nunito',sans-serif;font-size:20px;font-weight:700;color:var(--wht)}
-.ft-logo-wrap .wm span{color:var(--grn)}
 .ft-brand p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.7;margin-bottom:22px}
 .ft-acc-logos{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
 .ft-logo-chip{background:rgba(255,255,255,.07);border-radius:8px;padding:8px 12px;display:flex;align-items:center;justify-content:center;width:88px;height:50px;overflow:hidden;border:1px solid rgba(255,255,255,.09)}
@@ -581,10 +577,6 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 a.lender-pill{text-decoration:none;cursor:pointer}
 a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background:rgba(38,181,115,.1);transform:translateY(-2px)}
 
-/* ── FIX 13: Footer horizontal logo ── */
-.ft-logo-wrap{display:block;margin-bottom:14px;text-decoration:none}
-.ft-logo-horizontal{height:48px;width:auto;max-width:220px;object-fit:contain;display:block}
-
 /* ── HERO SPLIT LAYOUT ── */
 #hero{min-height:100vh;background:var(--blk);position:relative;display:flex;align-items:stretch;overflow:hidden}
 .hero-split{display:grid;grid-template-columns:1fr 1fr;width:100%;min-height:100vh;position:relative;z-index:2}
@@ -631,16 +623,49 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 .nav-links a{display:block;padding:8px 14px;font-size:18px;font-weight:600;color:rgba(255,255,255,.8);text-decoration:none;border-radius:var(--r);transition:all var(--t);text-transform:uppercase;letter-spacing:.04em}
 
 /* Fix 4: Footer horizontal logo — fills area, no circle, no border-radius */
-.ft-logo-wrap{display:block;margin-bottom:16px;text-decoration:none}
+/* ── FOOTER LOGO — HUGE, fills the brand column ── */
+.ft-logo-wrap{
+  display:block!important;
+  margin-bottom:20px!important;
+  text-decoration:none;
+  width:100%;
+}
 .ft-logo-horizontal{
-  height:auto;width:100%;max-width:240px;
-  object-fit:contain;display:block;
+  display:block!important;
+  width:100%!important;
+  max-width:380px!important;
+  height:auto!important;
+  min-height:80px;
+  object-fit:contain!important;
   border-radius:0!important;
   background:transparent!important;
 }
 
-/* Remove old hero-logo-lockup styles */
+/* ── Remove old hero-logo-lockup styles ── */
 .hero-logo-lockup{display:none}
+
+/* ── FIX 1: Charcoal globe watermark for white sections ── */
+.globe-watermark{
+  position:absolute;
+  pointer-events:none;
+  opacity:.035;
+  z-index:0;
+  user-select:none;
+}
+.globe-watermark img{
+  width:100%;height:100%;
+  display:block;
+  filter:grayscale(100%);
+}
+/* Watermark variants — different positions/sizes per section */
+.globe-watermark.wm-1{top:-80px;right:-120px;width:480px;height:480px}
+.globe-watermark.wm-2{bottom:-100px;left:-100px;width:420px;height:420px;opacity:.025}
+.globe-watermark.wm-3{top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;opacity:.025}
+.globe-watermark.wm-4{top:-60px;left:-80px;width:380px;height:380px;opacity:.03}
+
+/* Make sure these sections allow absolute positioning and z-index for content */
+#about,#services,#who,#cta,#network{position:relative;overflow:hidden}
+#about .container,#services .container,#who .container,#cta .container,#network .container{position:relative;z-index:1}
 </style>
 <body>
 
@@ -806,6 +831,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 
 <!-- ABOUT -->
 <section id="about" class="section">
+  <div class="globe-watermark wm-1" aria-hidden="true"><img src="GlobeFinancial-Icon-Charcoal.png" alt=""></div>
   <div class="container">
     <div class="about-grid">
       <div class="fade-up">
@@ -819,7 +845,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
             <path d="M65,84 Q183,184 300,240 Q417,296 535,396" fill="none" stroke="#26b573" stroke-width="1"/>
             <path d="M535,84 Q417,184 300,240 Q183,296 65,396" fill="none" stroke="#26b573" stroke-width="1"/>
           </svg>
-          <img src="logo.PNG" alt="Globe Financial" class="logo-img">
+          <img src="GlobeFinacial-Logo-Stacked-RGB.png" alt="Globe Financial" class="logo-img">
         </div>
         <div class="about-stats-row">
           <div class="about-stat-chip"><div class="about-stat-num">20<span>+</span></div><div class="about-stat-lbl">Years Exp.</div></div>
@@ -847,6 +873,8 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 
 <!-- SERVICES -->
 <section id="services" class="section">
+  <div class="globe-watermark wm-2" aria-hidden="true"><img src="GlobeFinancial-Icon-Charcoal.png" alt=""></div>
+  <div class="globe-watermark wm-1" aria-hidden="true" style="top:auto;bottom:-100px;right:-150px;opacity:.022"><img src="GlobeFinancial-Icon-Charcoal.png" alt=""></div>
   <div class="container">
     <div class="svc-hdr fade-up"><span class="tag">Our Services</span><h2>Tailored Lending for Every Stage</h2><p>From your first home to a complex commercial portfolio. We structure lending that aligns with your goals.</p></div>
     <div class="svc-grid">
@@ -933,6 +961,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 
 <!-- WHO -->
 <section id="who" class="section">
+  <div class="globe-watermark wm-3" aria-hidden="true"><img src="GlobeFinancial-Icon-Charcoal.png" alt=""></div>
   <div class="container">
     <div class="who-hdr fade-up"><span class="tag">Who We Work With</span><h2>Finance for Every Borrower</h2><p>Whether buying your first home or managing a complex portfolio. We have the expertise.</p></div>
     <div class="who-grid">
@@ -978,6 +1007,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 
 <!-- NETWORK -->
 <section id="network" class="section">
+  <div class="globe-watermark wm-4" aria-hidden="true"><img src="GlobeFinancial-Icon-Charcoal.png" alt=""></div>
   <div class="container">
     <div class="net-inner fade-up">
       <span class="tag">Professional Network</span>
@@ -1010,6 +1040,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 
 <!-- CTA FORM -->
 <section id="cta" class="section">
+  <div class="globe-watermark wm-2" aria-hidden="true"><img src="GlobeFinancial-Icon-Charcoal.png" alt=""></div>
   <div class="container">
     <div class="cta-inner fade-up">
       <span class="tag">Get Started</span>
