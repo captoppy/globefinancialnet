@@ -1111,8 +1111,33 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
             <div class="fg"><label for="ss-phone">Phone</label><input id="ss-phone" type="tel" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel"></div>
           </div>
           <div class="fg" style="margin-bottom:14px">
-            <label for="ss-dob">Date of Birth (DD/MM/YYYY)</label>
-            <input id="ss-dob" type="text" name="date-of-birth" placeholder="DD/MM/YYYY" pattern="\d{2}/\d{2}/\d{4}" title="Please enter your date of birth as DD/MM/YYYY" required autocomplete="bday">
+            <label>Date of Birth</label>
+            <div class="dob-wrap">
+              <select id="ss-dob-day" name="dob-day" required class="dob-select">
+                <option value="">Day</option>
+                <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option>
+                <option>06</option><option>07</option><option>08</option><option>09</option><option>10</option>
+                <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+                <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+                <option>31</option>
+              </select>
+              <select id="ss-dob-month" name="dob-month" required class="dob-select">
+                <option value="">Month</option>
+                <option value="01">January</option><option value="02">February</option>
+                <option value="03">March</option><option value="04">April</option>
+                <option value="05">May</option><option value="06">June</option>
+                <option value="07">July</option><option value="08">August</option>
+                <option value="09">September</option><option value="10">October</option>
+                <option value="11">November</option><option value="12">December</option>
+              </select>
+              <select id="ss-dob-year" name="dob-year" required class="dob-select">
+                <option value="">Year</option>
+              </select>
+            </div>
+            <!-- Hidden field that combines the three into DD/MM/YYYY for the form submission -->
+            <input type="hidden" name="date-of-birth" id="ss-dob-combined">
           </div>
           <div class="fg" style="margin-bottom:14px">
             <label for="ss-service">I'm Interested In</label>
@@ -1296,7 +1321,11 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 </button>
 
 <style>
-/* ── COOKIE BANNER ── */
+/* ── DOB dropdowns ── */
+.dob-wrap{display:grid;grid-template-columns:90px 1fr 100px;gap:8px}
+.dob-select{background:var(--off);border:1px solid var(--gl);border-radius:var(--r);padding:12px 10px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;color:var(--txt);outline:none;transition:border-color var(--t);width:100%;cursor:pointer}
+.dob-select:focus{border-color:var(--grn);background:var(--wht)}
+@media(max-width:480px){.dob-wrap{grid-template-columns:1fr 1fr 1fr;gap:6px}}
 #cookie-banner{
   position:fixed;bottom:0;left:0;right:0;z-index:2000;
   background:rgba(51,51,51,.98);
@@ -1381,7 +1410,32 @@ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersect
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-88,behavior:'smooth'})}}));
 
-// ── COOKIE BANNER ──
+// ── DOB year population ──
+(function(){
+  const yearSel = document.getElementById('ss-dob-year');
+  if(!yearSel) return;
+  const currentYear = new Date().getFullYear();
+  // Years from current down to 1924 — easy to find 1945 etc
+  for(let y = currentYear; y >= 1924; y--){
+    const opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    yearSel.appendChild(opt);
+  }
+
+  // Combine day/month/year into hidden field before form submits
+  const form = yearSel.closest('form');
+  if(form){
+    form.addEventListener('submit', function(){
+      const day   = document.getElementById('ss-dob-day').value;
+      const month = document.getElementById('ss-dob-month').value;
+      const year  = document.getElementById('ss-dob-year').value;
+      if(day && month && year){
+        document.getElementById('ss-dob-combined').value = day + '/' + month + '/' + year;
+      }
+    });
+  }
+})();
 (function(){
   const banner = document.getElementById('cookie-banner');
   const consent = localStorage.getItem('gf_cookie_consent');
