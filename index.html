@@ -343,6 +343,14 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
 .net-inner .tag{display:block;text-align:center}
 .net-inner h2{margin-bottom:14px}
 .net-inner>p{color:var(--gy);max-width:520px;margin:0 auto 44px}
+.partner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.partner-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:28px 20px;text-decoration:none;transition:all .25s ease;text-align:center}
+.partner-card:hover{background:rgba(29,185,84,.06);border-color:rgba(29,185,84,.3);transform:translateY(-3px);box-shadow:0 8px 24px rgba(29,185,84,.1)}
+.partner-card img{max-width:140px;max-height:56px;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.75;transition:opacity .25s ease}
+.partner-card:hover img{opacity:1}
+.partner-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.02em}
+.partner-desc{font-size:11px;color:rgba(255,255,255,.38);letter-spacing:.03em}
+@media(max-width:768px){.partner-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
 .net-box{background:var(--off);border:2px dashed var(--gl);border-radius:var(--rl);padding:60px 48px;text-align:center}
 .net-icon{width:76px;height:76px;background:var(--grn-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
 .net-box h3{font-size:1.65rem;color:var(--blk);margin-bottom:11px}
@@ -432,6 +440,7 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 .ft-legal-inner{background:rgba(255,255,255,.025);border-radius:var(--r);padding:24px 28px;margin-bottom:0}
 .ft-legal-inner p{font-size:11.5px;color:rgba(255,255,255,.35);line-height:1.85;margin-bottom:8px}
 .ft-legal-inner p:last-child{margin-bottom:0}
+.ft-disclaimer{font-size:10.5px!important;color:rgba(255,255,255,.22)!important;font-style:italic;margin-top:12px!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
 .ft-legal-inner strong{color:rgba(255,255,255,.6);font-weight:600}
 .ft-legal-inner a{color:rgba(255,255,255,.42);text-decoration:none;transition:color var(--t)}
 .ft-legal-inner a:hover{color:var(--grn)}
@@ -720,6 +729,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
           </div>
         </li>
         <li><a href="#lenders">Lenders</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#cta" class="btn btn-primary nav-cta">Book a Strategy Session</a>
@@ -736,6 +746,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
   <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 2</a>
   <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 3</a>
   <a href="#lenders" onclick="closeMobile()">Lenders</a>
+  <a href="/faq.html" onclick="closeMobile()">FAQ</a>
   <a href="#who" onclick="closeMobile()">Who We Help</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
   <a href="#cta" class="btn btn-primary" onclick="closeMobile()">Book a Strategy Session</a>
@@ -1114,15 +1125,28 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
       <h2>The Globe Financial Family</h2>
       <p>When you're with Globe Financial, you're family. Check out some of your Globe Financial family members today!</p>
     </div>
-  </div>
-  <div class="scroller-wrap" style="margin-top:40px">
-    <div class="scroller-track" style="animation-direction:reverse">
-      <a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a>
-      <a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a><a href="#cta" class="network-pill">Coming Soon</a>
+    <div class="partner-grid fade-up">
+      <a href="https://torkdigital.com.au/" target="_blank" rel="noopener sponsored" class="partner-card" aria-label="Tork Digital - Website Design Adelaide">
+        <img src="partners/landtorkdigital.png" alt="Tork Digital — Website Design Adelaide">
+        <span class="partner-name">Tork Digital</span>
+        <span class="partner-desc">Website Design Adelaide</span>
+      </a>
+      <a href="https://aqbookkeeping.com.au/" target="_blank" rel="noopener sponsored" class="partner-card" aria-label="AQ Bookkeeping">
+        <img src="partners/AQ Bookkeeping.png" alt="AQ Bookkeeping">
+        <span class="partner-name">AQ Bookkeeping</span>
+        <span class="partner-desc">Bookkeeping Services</span>
+      </a>
+      <a href="https://dnh-consult.com.au/" target="_blank" rel="noopener sponsored" class="partner-card" aria-label="DNH Consult">
+        <img src="partners/DNH Consult Logo.png" alt="DNH Consult">
+        <span class="partner-name">DNH Consult</span>
+        <span class="partner-desc">Business Consulting</span>
+      </a>
+      <a href="https://www.mcpropertyplus.com.au/" target="_blank" rel="noopener sponsored" class="partner-card" aria-label="MC Property Plus">
+        <img src="partners/MCPropertyPlus-Logo-2026-Primary-medium.jpg" alt="MC Property Plus">
+        <span class="partner-name">MC Property Plus</span>
+        <span class="partner-desc">Property Services</span>
+      </a>
     </div>
-  </div>
-  <div class="container" style="margin-top:28px;text-align:center">
-    <p style="font-size:13px;color:var(--gy)">Our community directory is growing. Check back soon.</p>
   </div>
 </section>
 
@@ -1131,9 +1155,10 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
   <div class="container">
     <div class="test-hdr fade-up"><span class="tag">Client Stories</span><h2>What Our Clients Say</h2><p>Real outcomes from real people across Adelaide and beyond.</p></div>
     <div class="test-grid">
-      <div class="test-card fade-up d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."</p><div class="test-author"><div class="test-av">S</div><div><div class="test-name">Client Name</div><div class="test-role">Client, Adelaide</div></div></div></div>
-      <div class="test-card fade-up d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p>"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."</p><div class="test-author"><div class="test-av">J</div><div><div class="test-name">Client Name</div><div class="test-role">Client, SA</div></div></div></div>
-      <div class="test-card fade-up d3"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae."</p><div class="test-author"><div class="test-av">R</div><div><div class="test-name">Client Name</div><div class="test-role">Business Owner, SA</div></div></div></div>
+      <div class="test-card fade-up d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p>"Dom was there from when I first started saving a deposit 3 years ago to getting the keys to my new home last month. As a first home buyer he made the process feel easy and enjoyable."</p><div class="test-author"><div class="test-av">M</div><div><div class="test-name">Michael R.</div><div class="test-role">First Home Buyer, St Clair SA</div></div></div></div>
+      <div class="test-card fade-up d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p>"Dom went the extra mile on both of my purchases. From my first purchase as a First Home Buyer right through to the construction of my dream home. Knowledgeable, resourceful, and always available."</p><div class="test-author"><div class="test-av">M</div><div><div class="test-name">Michael P.</div><div class="test-role">Property Owner, Renown Park SA</div></div></div></div>
+      <div class="test-card fade-up d3"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p>"Dom was able to help me develop a parcel of land and build 6 new homes. He had the knowledge of how the whole process should work, from financing the purchase to dealing with the lender. Highly recommend."</p><div class="test-author"><div class="test-av">I</div><div><div class="test-name">Ian S.</div><div class="test-role">Developer, Fulham Gardens SA</div></div></div></div>
+      <div class="test-card fade-up d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p>"Dom was referred to me by my accountant. I needed to buy a vehicle for my business, and he was able to secure me the loan with ease. I couldn't be happier with the professionalism and dedication he showed."</p><div class="test-author"><div class="test-av">S</div><div><div class="test-name">Stephen C.</div><div class="test-role">Business Owner, Salisbury SA</div></div></div></div>
     </div>
   </div>
 </section>
@@ -1340,7 +1365,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
           <li><a href="#lenders">Lender Panel</a></li>
           <li><a href="#testimonials">Client Stories</a></li>
         </ul>
-        <a href="#cta" class="btn btn-primary" style="margin-top:24px;display:inline-flex;font-size:12px;padding:12px 18px">Book a Strategy Session</a>
+        <a href="#cta" class="btn btn-primary" style="margin-top:24px;display:inline-flex;font-size:11px;padding:9px 16px;white-space:nowrap">Book a Strategy Session</a>
       </div>
       <div class="ft-col">
         <h4>Contact</h4>
@@ -1353,16 +1378,17 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
       </div>
     </div>
 
-    <!-- FIX 4: Full legal & compliance block — exactly as provided in the document -->
+    <!-- Full legal & compliance block -->
     <div class="ft-legal">
       <div class="ft-legal-inner">
         <p><strong>Globe Financial is a corporate credit representative (551959) of BLSSA Pty Ltd ACN 117651760 (Australian Credit License 391237).</strong></p>
         <p>Industry Body Memberships: <strong>MFAA</strong>: <a href="https://www.mfaa.com.au" target="_blank" rel="noopener">www.mfaa.com.au</a> &nbsp;|&nbsp; <strong>AFCA</strong>: <a href="https://www.afca.org.au" target="_blank" rel="noopener">www.afca.org.au</a></p>
+        <p class="ft-disclaimer">The information provided on this site is on the understanding that it is for illustrative and discussion purposes only. Whilst all care and attention is taken in its preparation any party seeking to rely on its content or otherwise should make their own enquiries and research to ensure its relevance to your specific personal and business requirements and circumstances. Terms, conditions, fees and charges may apply. Normal lending criteria apply. Rates subject to change. Approved applicants only.</p>
       </div>
     </div>
 
     <div class="ft-bottom">
-      <p>&copy; 2025 Globe Financial. All rights reserved.</p>
+      <p>&copy; 2026 Globe Financial. All rights reserved. &nbsp;<a href="/privacy-policy.html" style="color:rgba(255,255,255,.4);text-decoration:underline">Privacy Policy</a></p>
       <a href="https://torkdigital.com.au" target="_blank" title="Website Design Adelaide by Tork Digital">Website Design Adelaide by Tork Digital</a>
     </div>
   </div>
