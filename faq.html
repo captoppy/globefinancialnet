@@ -70,11 +70,12 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
 .nav-cta{flex-shrink:0}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.85);border-radius:2px;transition:all .3s}
-.mobile-menu{display:none;flex-direction:column;gap:4px;position:fixed;top:88px;left:0;right:0;background:rgba(40,40,40,.98);backdrop-filter:blur(12px);padding:20px 24px 28px;z-index:999;border-bottom:1px solid rgba(255,255,255,.07)}
+.mobile-menu{display:none;position:fixed;top:88px;left:0;right:0;background:var(--blk);padding:24px;z-index:999;border-top:1px solid rgba(255,255,255,.08);flex-direction:column;gap:4px}
 .mobile-menu.open{display:flex}
-.mobile-menu a{display:block;padding:12px 16px;font-size:15px;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;border-radius:var(--r);transition:all var(--t);text-transform:uppercase;letter-spacing:.04em}
-.mobile-menu a:hover{color:var(--grn);background:rgba(255,255,255,.06)}
-.mobile-menu .btn{margin-top:12px;justify-content:center}
+.mobile-menu a{padding:14px 16px;color:rgba(255,255,255,.85);text-decoration:none;font-size:15px;font-weight:500;border-radius:var(--r);transition:all var(--t);border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-menu a:hover{color:var(--grn);background:rgba(255,255,255,.05)}
+.mobile-menu .mobile-sub{padding:10px 16px 10px 32px;font-size:13.5px;color:rgba(255,255,255,.55);border-bottom:1px solid rgba(255,255,255,.04)}
+.mobile-menu .btn{margin-top:16px;justify-content:center}
 @media(max-width:900px){.nav-links{display:none!important}.nav-cta{display:none}.hamburger{display:flex}}
 
 /* PAGE HERO */
@@ -183,17 +184,15 @@ footer{background:var(--blk);padding:60px 0 0;color:rgba(255,255,255,.55)}
 <div class="mobile-menu" id="mobile-menu">
   <a href="/#domenic" onclick="closeMobile()">Meet Your Broker</a>
   <a href="/#services" onclick="closeMobile()">Services</a>
-  <a href="#" onclick="return false" style="color:rgba(255,255,255,.85);font-weight:600">Documents</a>
-  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 1</a>
-  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 2</a>
-  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 3</a>
+  <a href="#" onclick="return false" style="font-weight:600">Documents</a>
+  <a href="#" onclick="return false" class="mobile-sub">&#8212; Form 1</a>
+  <a href="#" onclick="return false" class="mobile-sub">&#8212; Form 2</a>
+  <a href="#" onclick="return false" class="mobile-sub">&#8212; Form 3</a>
   <a href="/#lenders" onclick="closeMobile()">Lenders</a>
-  <a href="/faq.html" onclick="closeMobile()" style="color:var(--grn)">FAQ</a>
-  <a href="/#who" onclick="closeMobile()">Who We Help</a>
+  <a href="/faq.html" onclick="closeMobile()">FAQ</a>
   <a href="/#contact" onclick="closeMobile()">Contact</a>
   <a href="/#cta" class="btn btn-primary" onclick="closeMobile()">Book a Strategy Session</a>
 </div>
-
 <!-- HERO -->
 <main id="main-content">
 <section class="faq-hero">
@@ -795,7 +794,7 @@ window.addEventListener('scroll',()=>{
   document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
 });
 // Hamburger
-function closeMobile(){document.getElementById('mobile-menu').classList.remove('open')}
+
 document.getElementById('hamburger').addEventListener('click',()=>{
   document.getElementById('mobile-menu').classList.toggle('open');
 });
@@ -824,6 +823,20 @@ groups.forEach(g=>observer.observe(g));
 // Open first FAQ by default
 const first=document.querySelector('.faq-item');
 if(first) first.classList.add('open');
+</script>
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+const hb=document.getElementById('hamburger'),mm=document.getElementById('mobile-menu');
+let open=false;
+hb.addEventListener('click',()=>{
+  open=!open;mm.classList.toggle('open',open);
+  const s=hb.querySelectorAll('span');
+  if(open){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}
+  else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}
+});
+function closeMobile(){open=false;mm.classList.remove('open');hb.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';})}
+document.addEventListener('click',e=>{if(open&&!hb.contains(e.target)&&!mm.contains(e.target))closeMobile()});
 </script>
 </body>
 </html>
