@@ -335,8 +335,10 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
 /* ACCREDITATIONS */
 #accreditations{background:var(--off);padding:64px 0;border-top:1px solid var(--gl);border-bottom:1px solid var(--gl)}
 .acc-inner{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
-.acc-logo-wrap{display:flex;align-items:center;justify-content:center;background:var(--wht);border-radius:var(--rl);padding:24px 32px;border:1px solid var(--gl);min-width:180px;min-height:96px}
-.acc-logo-wrap img{max-width:140px;max-height:68px;object-fit:contain;display:block}
+.acc-logo-wrap{display:flex;align-items:center;justify-content:center;background:var(--wht);border-radius:var(--rl);padding:24px 32px;border:1px solid var(--gl);min-width:180px;min-height:96px;transition:all .25s ease;cursor:default}
+.acc-logo-wrap:hover{border-color:var(--grn);box-shadow:0 6px 24px rgba(38,181,115,.18);transform:translateY(-3px)}
+.acc-logo-wrap img{max-width:140px;max-height:68px;object-fit:contain;display:block;transition:filter .25s ease}
+.acc-logo-wrap:hover img{filter:drop-shadow(0 2px 8px rgba(38,181,115,.25))}
 
 /* NETWORK */
 #network{background:var(--wht)}
@@ -345,12 +347,12 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
 .net-inner h2{margin-bottom:14px}
 .net-inner>p{color:var(--gy);max-width:520px;margin:0 auto 44px}
 .partner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
-.partner-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:28px 20px;text-decoration:none;transition:all .25s ease;text-align:center}
-.partner-card:hover{background:rgba(29,185,84,.06);border-color:rgba(29,185,84,.3);transform:translateY(-3px);box-shadow:0 8px 24px rgba(29,185,84,.1)}
-.partner-card img{max-width:140px;max-height:56px;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.75;transition:opacity .25s ease}
+.partner-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--wht);border:1px solid var(--gl);border-radius:12px;padding:28px 20px;text-decoration:none;transition:all .25s ease;text-align:center;box-shadow:var(--s1)}
+.partner-card:hover{border-color:var(--grn);transform:translateY(-3px);box-shadow:0 8px 24px rgba(38,181,115,.15)}
+.partner-card img{max-width:140px;max-height:56px;width:auto;height:auto;object-fit:contain;filter:none;opacity:.85;transition:opacity .25s ease}
 .partner-card:hover img{opacity:1}
-.partner-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.02em}
-.partner-desc{font-size:11px;color:rgba(255,255,255,.38);letter-spacing:.03em}
+.partner-name{font-size:13px;font-weight:600;color:var(--blk);letter-spacing:.02em}
+.partner-desc{font-size:11px;color:var(--gy);letter-spacing:.03em}
 @media(max-width:768px){.partner-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
 .net-box{background:var(--off);border:2px dashed var(--gl);border-radius:var(--rl);padding:60px 48px;text-align:center}
 .net-icon{width:76px;height:76px;background:var(--grn-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
