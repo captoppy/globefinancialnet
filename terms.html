@@ -39,8 +39,8 @@ ul li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;b
 #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s ease;background:rgba(51,51,51,.92);backdrop-filter:blur(12px)}
 #navbar.scrolled{background:rgba(51,51,51,.98);box-shadow:0 4px 30px rgba(0,0,0,.5)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:88px;gap:32px}
-.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
-.nav-links a{display:block;padding:8px 14px;font-size:18px;font-weight:600;color:rgba(255,255,255,.8);text-decoration:none;border-radius:var(--r);transition:all var(--t);text-transform:uppercase;letter-spacing:.04em}
+.nav-links{display:flex!important;flex-direction:row!important;align-items:center;gap:4px;list-style:none}.nav-links li{list-style:none;padding-left:0}.nav-links li::before{display:none!important}
+.nav-links a{display:block;padding:8px 14px;font-size:18px;font-weight:600;color:rgba(255,255,255,.8);text-decoration:none;border-radius:var(--r);transition:all var(--t);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
 .nav-links a:hover{color:var(--grn);background:rgba(255,255,255,.06);text-decoration:none}
 .nav-links .has-dropdown{position:relative}
 .nav-links .has-dropdown>a{display:flex;align-items:center;gap:5px}
@@ -124,9 +124,8 @@ footer{background:var(--blk);padding:60px 0 0;color:rgba(255,255,255,.55)}
 <nav id="navbar">
   <div class="wide">
     <div class="nav-inner">
-      <a href="/"><img src="GlobeFinacial-Logo-Stacked-REV.png" alt="Globe Financial" style="height:54px;width:auto"></a>
       <ul class="nav-links">
-        <li><a href="/#domenic">Meet Domenic</a></li>
+        <li><a href="/#domenic">Meet Your Broker</a></li>
         <li><a href="/#services">Services</a></li>
         <li class="has-dropdown">
           <a href="#" onclick="return false">Documents</a>
@@ -147,7 +146,7 @@ footer{background:var(--blk);padding:60px 0 0;color:rgba(255,255,255,.55)}
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/#domenic" onclick="closeMobile()">Meet Domenic</a>
+  <a href="/#domenic" onclick="closeMobile()">Meet Your Broker</a>
   <a href="/#services" onclick="closeMobile()">Services</a>
   <a href="/#lenders" onclick="closeMobile()">Lenders</a>
   <a href="/faq.html" onclick="closeMobile()">FAQ</a>
@@ -318,7 +317,7 @@ footer{background:var(--blk);padding:60px 0 0;color:rgba(255,255,255,.55)}
       <div class="ft-col">
         <h4>Company</h4>
         <ul class="ft-links">
-          <li><a href="/#domenic">Meet Domenic</a></li>
+          <li><a href="/#domenic">Meet Your Broker</a></li>
           <li><a href="/#about">About Us</a></li>
           <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/#lenders">Lender Panel</a></li>
