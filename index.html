@@ -217,7 +217,7 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
 .dom-cred span{font-size:12px;color:rgba(255,255,255,.42)}
 /* FIX 3: No LinkedIn button — just the one CTA */
 .dom-btns{display:flex;gap:14px;flex-wrap:wrap}
-.dom-credit-rep{font-size:10.5px;color:rgba(255,255,255,.3);margin-top:16px;font-style:italic;line-height:1.6}
+.dom-credit-rep{font-size:9.5px;color:rgba(255,255,255,.3);margin-top:12px;font-style:italic;line-height:1.5}
 
 /* ABOUT */
 #about{background:var(--wht)}
@@ -507,49 +507,50 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 }
 /* ── DOMENIC — creative full-bleed two-panel ── */
 #domenic{background:var(--blk);position:relative;overflow:hidden}
-.dom-split{display:grid;grid-template-columns:340px 1fr;align-items:stretch}
+.dom-split{display:grid;grid-template-columns:280px 1fr;align-items:stretch}
 
-/* Photo panel - white background, full image visible, no creative junk */
+/* Photo panel - white background, FULL image visible, no cropping */
 .dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:var(--wht)}
-.dom-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-/* Subtle viridian stripe only */
+.dom-img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
+/* Thin viridian left stripe */
 .dom-img-panel::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--grn);z-index:3}
 /* Name badge at bottom of photo */
 .dom-img-overlay{display:none}
-.dom-name-badge{position:absolute;bottom:0;left:0;right:0;z-index:3;background:var(--blk);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:2px solid var(--grn)}
-.dom-name-badge-inner strong{display:block;font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:var(--wht);margin-bottom:3px;line-height:1.2}
-.dom-name-badge-inner span{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--grn)}
-.dom-name-badge-icon{width:34px;height:34px;background:rgba(38,181,115,.15);border:1px solid rgba(38,181,115,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dom-name-badge{position:absolute;bottom:0;left:0;right:0;z-index:3;background:var(--blk);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:2px solid var(--grn)}
+.dom-name-badge-inner strong{display:block;font-family:Arial,sans-serif;font-size:13.5px;font-weight:700;color:var(--wht);margin-bottom:2px;line-height:1.2}
+.dom-name-badge-inner span{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--grn)}
+.dom-name-badge-icon{width:30px;height:30px;background:rgba(38,181,115,.15);border:1px solid rgba(38,181,115,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
 /* Right content panel */
 .dom-content-new{
-  padding:56px 56px;
+  padding:36px 44px;
   display:flex;flex-direction:column;justify-content:center;
   background:linear-gradient(150deg,#2a3a2a 0%,#333333 60%,#2e3a2e 100%);
   border-left:1px solid rgba(38,181,115,.12);
   position:relative;
 }
 .dom-content-new::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(38,181,115,.08) 0%,transparent 60%);pointer-events:none}
-.dom-content-new .tag{display:block;color:var(--grn);position:relative}
-.dom-content-new h2{color:var(--wht);margin-bottom:18px;font-size:clamp(1.5rem,2.5vw,2.2rem);position:relative}
+.dom-content-new .tag{display:block;color:var(--grn);position:relative;margin-bottom:8px;font-size:10px}
+.dom-content-new h2{color:var(--wht);margin-bottom:12px;font-size:clamp(1.2rem,1.8vw,1.6rem);position:relative;line-height:1.25}
 .dom-content-new h2 em{font-style:italic;color:var(--grn)}
-.dom-lead{font-size:.98rem;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:12px;position:relative}
-.dom-body{font-size:13.5px;color:rgba(255,255,255,.48);line-height:1.8;margin-bottom:28px;position:relative}
+.dom-lead{font-size:13px;color:rgba(255,255,255,.72);line-height:1.6;margin-bottom:8px;position:relative}
+.dom-body{font-size:12px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:18px;position:relative}
 
-/* 2x2 credential pills grid */
-.dom-cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;position:relative}
+/* 2x2 credential pills grid - COMPACT */
+.dom-cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;position:relative}
 .dom-cred-pill{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:14px 16px;
+  display:flex;align-items:center;gap:8px;
+  padding:9px 11px;
   background:rgba(255,255,255,.05);
   border:1px solid rgba(38,181,115,.15);
-  border-radius:var(--rl);
+  border-radius:6px;
   transition:background var(--t),border-color var(--t);
 }
 .dom-cred-pill:hover{background:rgba(38,181,115,.08);border-color:rgba(38,181,115,.35)}
-.dom-cred-pill-icon{width:30px;height:30px;background:rgba(38,181,115,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.dom-cred-pill strong{display:block;font-size:13px;font-weight:700;color:var(--wht);margin-bottom:2px;font-family:Arial,sans-serif}
-.dom-cred-pill span{font-size:11.5px;color:rgba(255,255,255,.42)}
+.dom-cred-pill-icon{width:24px;height:24px;background:rgba(38,181,115,.12);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dom-cred-pill-icon svg{width:13px;height:13px}
+.dom-cred-pill strong{display:block;font-size:11.5px;font-weight:700;color:var(--wht);margin-bottom:1px;font-family:Arial,sans-serif;line-height:1.2}
+.dom-cred-pill span{font-size:10px;color:rgba(255,255,255,.42);line-height:1.2}
 .dom-btns{position:relative}
 
 @media(max-width:900px){
