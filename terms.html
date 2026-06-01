@@ -380,8 +380,30 @@ document.querySelectorAll('.page-tab').forEach(tab=>{
   });
 });
 
+// ANY link going to #complaints (footer, nav, etc) - switch panel and scroll up
+document.querySelectorAll('a[href$="#complaints"], a[href$="/terms.html#complaints"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    switchPanel('complaints');
+    history.replaceState(null,'','#complaints');
+  });
+});
+// Same for any link going back to terms-only
+document.querySelectorAll('a[href$="/terms.html"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    if(a.getAttribute('href').includes('#complaints')) return;
+    e.preventDefault();
+    switchPanel('terms');
+    history.replaceState(null,'','#');
+  });
+});
+
 // Auto-open complaints tab if URL has #complaints
 if(window.location.hash==='#complaints') switchPanel('complaints');
+// React to manual hash changes (back/forward)
+window.addEventListener('hashchange',()=>{
+  switchPanel(window.location.hash==='#complaints'?'complaints':'terms');
+});
 </script>
 <script>
 const navbar=document.getElementById('navbar');
