@@ -189,11 +189,11 @@ p{line-height:1.75;color:var(--gyd);font-family:Arial,'Helvetica Neue',Helvetica
   radial-gradient(ellipse 60% 80% at 20% 70%,rgba(29,185,84,.05) 0%,transparent 50%),
   linear-gradient(150deg,#2a3a2a 0%,#333333 40%,#2e3a2e 100%)}
 #domenic::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,185,84,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(29,185,84,.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
-.dom-layout{display:grid;grid-template-columns:1fr 1fr;min-height:720px;position:relative;z-index:1}
+.dom-layout{display:grid;grid-template-columns:1fr 1fr;min-height:620px;position:relative;z-index:1}
 
 /* Photo panel */
 .dom-photo-panel{position:relative;overflow:hidden;background:#2c342c}
-.dom-photo-panel img.dom-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 7s ease}
+.dom-photo-panel img.dom-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;transition:transform 7s ease}
 .dom-photo-panel:hover img.dom-photo{transform:scale(1.03)}
 .dom-photo-panel::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--grn),rgba(29,185,84,.15));z-index:2}
 .dom-photo-panel::after{content:'';position:absolute;bottom:0;left:0;right:0;height:280px;background:linear-gradient(to top,rgba(4,14,4,.96) 0%,rgba(4,14,4,.45) 45%,transparent 100%);z-index:2;pointer-events:none}
@@ -723,14 +723,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
       <ul class="nav-links">
         <li><a href="#domenic">Meet Your Broker</a></li>
         <li><a href="#services">Services</a></li>
-        <li class="has-dropdown">
-          <a href="#" onclick="return false">Documents</a>
-          <div class="dropdown-menu">
-            <a href="#" onclick="return false">Form 1</a>
-            <a href="#" onclick="return false">Form 2</a>
-            <a href="#" onclick="return false">Form 3</a>
-          </div>
-        </li>
+        <li><a href="#network">Network</a></li>
         <li><a href="#lenders">Lenders</a></li>
         <li><a href="/faq.html">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -744,10 +737,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 <div class="mobile-menu" id="mobile-menu">
   <a href="#domenic" onclick="closeMobile()">Meet Your Broker</a>
   <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#" onclick="return false" style="color:rgba(255,255,255,.85);font-weight:600">Documents</a>
-  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 1</a>
-  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 2</a>
-  <a href="#" onclick="return false" style="padding-left:28px;font-size:13.5px;color:rgba(255,255,255,.55)">— Form 3</a>
+  <a href="#network" onclick="closeMobile()">Network</a>
   <a href="#lenders" onclick="closeMobile()">Lenders</a>
   <a href="/faq.html" onclick="closeMobile()">FAQ</a>
   <a href="#who" onclick="closeMobile()">Who We Help</a>
@@ -872,7 +862,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
       <div class="dom-btns">
         <a href="#cta" class="btn btn-primary"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Book a Session with Domenic</a>
       </div>
-      <p class="dom-credit-rep">Domenic Passalacqua is a credit representative (551959) of BLSSA Pty Ltd ACN 117 651 760 Australian Credit Licence 391237.</p>
+      <p class="dom-credit-rep">Domenic Passalacqua | Diploma of Finance &amp; Mortgage Broking Management is a qualified accredited Finance Broker.</p>
     </div>
 
   </div>
@@ -1267,6 +1257,9 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
         <div class="socials">
           <a href="https://www.instagram.com/globe_financial" target="_blank" rel="noopener" class="soc-link" aria-label="Instagram">
             <svg width="17" height="17" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61590109865961" target="_blank" rel="noopener" class="soc-link" aria-label="Facebook">
+            <svg width="17" height="17" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           </a>
           <a href="https://www.linkedin.com/in/domenic-passalacqua-9356aa383/" target="_blank" rel="noopener" class="soc-link" aria-label="LinkedIn">
             <svg width="17" height="17" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>

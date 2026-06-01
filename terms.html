@@ -139,14 +139,7 @@ footer{background:var(--blk);padding:60px 0 0;color:rgba(255,255,255,.55)}
       <ul class="nav-links">
         <li><a href="/#domenic">Meet Your Broker</a></li>
         <li><a href="/#services">Services</a></li>
-        <li class="has-dropdown">
-          <a href="#" onclick="return false">Documents</a>
-          <div class="dropdown-menu">
-            <a href="#" onclick="return false">Form 1</a>
-            <a href="#" onclick="return false">Form 2</a>
-            <a href="#" onclick="return false">Form 3</a>
-          </div>
-        </li>
+        <li><a href="/#network">Network</a></li>
         <li><a href="/#lenders">Lenders</a></li>
         <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/#contact">Contact</a></li>
@@ -160,10 +153,7 @@ footer{background:var(--blk);padding:60px 0 0;color:rgba(255,255,255,.55)}
 <div class="mobile-menu" id="mobile-menu">
   <a href="/#domenic" onclick="closeMobile()">Meet Your Broker</a>
   <a href="/#services" onclick="closeMobile()">Services</a>
-  <a href="#" onclick="return false" style="font-weight:600">Documents</a>
-  <a href="#" onclick="return false" class="mobile-sub">&#8212; Form 1</a>
-  <a href="#" onclick="return false" class="mobile-sub">&#8212; Form 2</a>
-  <a href="#" onclick="return false" class="mobile-sub">&#8212; Form 3</a>
+  <a href="/#network" onclick="closeMobile()">Network</a>
   <a href="/#lenders" onclick="closeMobile()">Lenders</a>
   <a href="/faq.html" onclick="closeMobile()">FAQ</a>
   <a href="/#contact" onclick="closeMobile()">Contact</a>
@@ -378,6 +368,7 @@ function switchPanel(name){
   document.querySelectorAll('.page-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
   document.querySelector('[data-panel="'+name+'"]').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 // Tab clicks
