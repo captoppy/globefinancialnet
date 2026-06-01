@@ -507,20 +507,21 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 }
 /* ── DOMENIC — creative full-bleed two-panel ── */
 #domenic{background:var(--blk);position:relative;overflow:hidden}
-.dom-split{display:grid;grid-template-columns:380px 1fr;min-height:600px}
+.dom-split{display:grid;grid-template-columns:420px 1fr;min-height:560px}
 
-/* Photo panel */
-.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:#1a1a1a}
-.dom-img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;transition:transform 8s ease}
-.dom-img-panel:hover .dom-img{transform:scale(1.03)}
-/* Gradient overlay so name badge is readable */
-.dom-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.2) 45%,transparent 70%);pointer-events:none}
-.dom-name-badge{position:absolute;bottom:28px;left:0;right:0;padding:0 24px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-.dom-name-badge-inner strong{display:block;font-family:Arial,sans-serif;font-size:17px;font-weight:700;color:var(--wht);margin-bottom:4px}
-.dom-name-badge-inner span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grn)}
-.dom-name-badge-icon{width:40px;height:40px;background:rgba(38,181,115,.15);border:1px solid rgba(38,181,115,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-/* Green left accent stripe */
-.dom-img-panel::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--grn),rgba(38,181,115,.1));z-index:2}
+/* Photo panel - white background, full bleed, artsy accents */
+.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:linear-gradient(180deg,#ffffff 0%,#f5faf7 100%)}
+.dom-img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;transition:transform 8s ease}
+.dom-img-panel:hover .dom-img{transform:scale(1.04)}
+/* Subtle viridian geometric accents - a corner bracket + diagonal stripe */
+.dom-img-panel::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--grn) 0%,var(--grn) 30%,rgba(38,181,115,.15) 100%);z-index:3}
+.dom-img-panel::after{content:'';position:absolute;top:32px;right:32px;width:52px;height:52px;border-top:3px solid var(--grn);border-right:3px solid var(--grn);opacity:.7;z-index:3}
+/* Name badge - now a green pill at bottom-left of white photo */
+.dom-img-overlay{display:none}
+.dom-name-badge{position:absolute;bottom:24px;left:24px;right:24px;z-index:3;background:var(--blk);border-radius:8px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);border-left:3px solid var(--grn)}
+.dom-name-badge-inner strong{display:block;font-family:Arial,sans-serif;font-size:16px;font-weight:700;color:var(--wht);margin-bottom:4px;line-height:1.2}
+.dom-name-badge-inner span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grn)}
+.dom-name-badge-icon{width:38px;height:38px;background:rgba(38,181,115,.15);border:1px solid rgba(38,181,115,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
 /* Right content panel */
 .dom-content-new{
@@ -862,7 +863,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
       <div class="dom-btns">
         <a href="#cta" class="btn btn-primary"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Book a Session with Domenic</a>
       </div>
-      <p class="dom-credit-rep">Domenic Passalacqua | Diploma of Finance &amp; Mortgage Broking Management is a qualified accredited Finance Broker.</p>
+      <p class="dom-credit-rep">Domenic Passalacqua | Diploma of Finance &amp; Mortgage Broking Management | is a qualified accredited Finance Broker.</p>
     </div>
 
   </div>
