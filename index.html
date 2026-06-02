@@ -507,32 +507,35 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 }
 /* ── DOMENIC — creative full-bleed two-panel ── */
 #domenic{background:var(--blk);position:relative;overflow:hidden}
-.dom-split{display:grid;grid-template-columns:280px 1fr;align-items:stretch}
+.dom-split{display:grid;grid-template-columns:280px 1fr;align-items:stretch;background:linear-gradient(150deg,#2a3a2a 0%,#333333 60%,#2e3a2e 100%);border-radius:0;position:relative;overflow:hidden}
+.dom-split::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(38,181,115,.08) 0%,transparent 60%);pointer-events:none}
 
-/* Photo panel - white background, FULL image visible, no cropping */
-.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:var(--wht)}
-.dom-img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
-/* Thin viridian left stripe */
-.dom-img-panel::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--grn);z-index:3}
-/* Name badge at bottom of photo */
-.dom-img-overlay{display:none}
-.dom-name-badge{position:absolute;bottom:0;left:0;right:0;z-index:3;background:var(--blk);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:2px solid var(--grn)}
-.dom-name-badge-inner strong{display:block;font-family:Arial,sans-serif;font-size:13.5px;font-weight:700;color:var(--wht);margin-bottom:2px;line-height:1.2}
-.dom-name-badge-inner span{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--grn)}
-.dom-name-badge-icon{width:30px;height:30px;background:rgba(38,181,115,.15);border:1px solid rgba(38,181,115,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* Photo panel - white background only behind the photo, FULL image visible */
+.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:var(--wht);z-index:1}
+.dom-img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
+/* Thin viridian right edge so the photo blends visually with the dark panel */
+.dom-img-panel::after{content:'';position:absolute;top:0;right:0;width:3px;height:100%;background:var(--grn);z-index:3}
+
+/* Name badge - hidden, name moves into content panel like the mockup */
+.dom-img-overlay,.dom-name-badge{display:none}
 
 /* Right content panel */
 .dom-content-new{
   padding:36px 44px;
   display:flex;flex-direction:column;justify-content:center;
-  background:linear-gradient(150deg,#2a3a2a 0%,#333333 60%,#2e3a2e 100%);
-  border-left:1px solid rgba(38,181,115,.12);
+  background:transparent;
+  border-left:none;
   position:relative;
+  z-index:1;
 }
-.dom-content-new::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(38,181,115,.08) 0%,transparent 60%);pointer-events:none}
+.dom-content-new::before{display:none}
 .dom-content-new .tag{display:block;color:var(--grn);position:relative;margin-bottom:8px;font-size:10px}
 .dom-content-new h2{color:var(--wht);margin-bottom:12px;font-size:clamp(1.2rem,1.8vw,1.6rem);position:relative;line-height:1.25}
 .dom-content-new h2 em{font-style:italic;color:var(--grn)}
+/* Name + role line at top, mockup-style */
+.dom-namerole{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.dom-namerole strong{font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:var(--wht);line-height:1.2}
+.dom-namerole span{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--grn)}
 .dom-lead{font-size:13px;color:rgba(255,255,255,.72);line-height:1.6;margin-bottom:8px;position:relative}
 .dom-body{font-size:12px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:18px;position:relative}
 
@@ -836,6 +839,10 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
     <div class="dom-content-new">
       <span class="tag">Meet Your Broker</span>
       <h2>Finance expertise you can <em>trust</em>, and a broker who genuinely cares.</h2>
+      <div class="dom-namerole">
+        <strong>Domenic Passalacqua</strong>
+        <span>Director &amp; Principal Finance Broker</span>
+      </div>
       <p class="dom-lead">With over 20 years navigating Australia's lending landscape, Domenic has helped hundreds of Adelaide families, investors, and business owners secure the finance they need to move forward with confidence.</p>
       <p class="dom-body">Domenic built Globe Financial on a simple belief: every client deserves a broker who takes the time to understand their full picture, not just the next transaction. His approach combines deep lender knowledge, strategic thinking, and straightforward communication that makes even complex lending feel manageable.</p>
 
