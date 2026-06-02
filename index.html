@@ -507,12 +507,12 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 }
 /* ── DOMENIC — creative full-bleed two-panel ── */
 #domenic{background:var(--blk);position:relative;overflow:hidden}
-.dom-split{display:grid;grid-template-columns:280px 1fr;align-items:stretch;background:transparent;border-radius:0;position:relative;overflow:visible}
+.dom-split{display:grid;grid-template-columns:340px 1fr;align-items:stretch;background:transparent;border-radius:0;position:relative;overflow:visible}
 .dom-split::before{display:none}
 
-/* Photo column - transparent (page background shows through), photo sits against page */
-.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:transparent;z-index:2;align-self:end}
-.dom-img{width:100%;height:auto;max-height:100%;object-fit:contain;object-position:center bottom;display:block}
+/* Photo column - transparent, photo fills column from bottom, NEVER cropped */
+.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:transparent;z-index:2}
+.dom-img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
 .dom-img-panel::after{display:none}
 
 /* Name overlay at bottom of photo */
@@ -824,7 +824,7 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
 
     <!-- LEFT: Photo with overlaid name badge -->
     <div class="dom-img-panel">
-      <img src="domenic_passalacqua.png" alt="Domenic Passalacqua, Director Globe Financial" class="dom-img">
+      <img src="dom_bg.png" alt="Domenic Passalacqua, Director Globe Financial" class="dom-img">
       <div class="dom-img-overlay">
         <div class="dom-name-badge">
           <div class="dom-name-badge-inner">
