@@ -510,8 +510,8 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 .dom-split{display:grid;grid-template-columns:340px 1fr;align-items:stretch;background:transparent;border-radius:0;position:relative;overflow:visible}
 .dom-split::before{display:none}
 
-/* Photo column - transparent, photo fills column from bottom, NEVER cropped */
-.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:transparent;z-index:2}
+/* Photo column - matches content panel gradient exactly so both sections look unified */
+.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:linear-gradient(150deg,#2a3a2a 0%,#333333 60%,#2e3a2e 100%);z-index:2}
 .dom-img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
 .dom-img-panel::after{display:none}
 
