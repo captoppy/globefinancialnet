@@ -507,18 +507,17 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 }
 /* ── DOMENIC — creative full-bleed two-panel ── */
 #domenic{background:var(--blk);position:relative;overflow:hidden}
-.dom-split{display:grid;grid-template-columns:280px 1fr;align-items:stretch;background:linear-gradient(150deg,#2a3a2a 0%,#333333 60%,#2e3a2e 100%);border-radius:0;position:relative;overflow:hidden}
-.dom-split::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(38,181,115,.08) 0%,transparent 60%);pointer-events:none}
+.dom-split{display:grid;grid-template-columns:280px 1fr;align-items:stretch;background:transparent;border-radius:0;position:relative;overflow:visible}
+.dom-split::before{display:none}
 
-/* Photo panel - white background, photo anchored to BOTTOM so no whitespace above Dom */
-.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:var(--wht);z-index:1}
-.dom-img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
-/* Thin viridian right edge */
-.dom-img-panel::after{content:'';position:absolute;top:0;right:0;width:3px;height:100%;background:var(--grn);z-index:3}
+/* Photo column - transparent (page background shows through), photo sits against page */
+.dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:transparent;z-index:2;align-self:end}
+.dom-img{width:100%;height:auto;max-height:100%;object-fit:contain;object-position:center bottom;display:block}
+.dom-img-panel::after{display:none}
 
 /* Name overlay at bottom of photo */
 .dom-img-overlay{display:block}
-.dom-name-badge{position:absolute;bottom:0;left:0;right:3px;z-index:3;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.78) 70%,rgba(0,0,0,0) 100%);padding:36px 16px 14px;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.dom-name-badge{position:absolute;bottom:0;left:0;right:0;z-index:3;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.6) 70%,rgba(0,0,0,0) 100%);padding:36px 16px 14px;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 .dom-name-badge-inner strong{display:block;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--wht);line-height:1.2}
 .dom-name-badge-inner span{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--grn);margin-top:3px;display:block}
 .dom-name-badge-icon{display:none}
@@ -527,12 +526,12 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 .dom-content-new{
   padding:36px 44px;
   display:flex;flex-direction:column;justify-content:center;
-  background:transparent;
+  background:linear-gradient(150deg,#2a3a2a 0%,#333333 60%,#2e3a2e 100%);
   border-left:none;
   position:relative;
   z-index:1;
 }
-.dom-content-new::before{display:none}
+.dom-content-new::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(38,181,115,.08) 0%,transparent 60%);pointer-events:none}
 .dom-content-new .tag{display:block;color:var(--grn);position:relative;margin-bottom:8px;font-size:10px}
 .dom-content-new h2{color:var(--wht);margin-bottom:12px;font-size:clamp(1.2rem,1.8vw,1.6rem);position:relative;line-height:1.25}
 .dom-content-new h2 em{font-style:italic;color:var(--grn)}
