@@ -510,14 +510,18 @@ footer{background:#2a2a2a;color:var(--wht);padding:64px 0 0}
 .dom-split{display:grid;grid-template-columns:280px 1fr;align-items:stretch;background:linear-gradient(150deg,#2a3a2a 0%,#333333 60%,#2e3a2e 100%);border-radius:0;position:relative;overflow:hidden}
 .dom-split::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(38,181,115,.08) 0%,transparent 60%);pointer-events:none}
 
-/* Photo panel - white background only behind the photo, FULL image visible */
+/* Photo panel - white background, photo anchored to BOTTOM so no whitespace above Dom */
 .dom-img-panel{position:relative;overflow:hidden;flex-shrink:0;background:var(--wht);z-index:1}
 .dom-img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
-/* Thin viridian right edge so the photo blends visually with the dark panel */
+/* Thin viridian right edge */
 .dom-img-panel::after{content:'';position:absolute;top:0;right:0;width:3px;height:100%;background:var(--grn);z-index:3}
 
-/* Name badge - hidden, name moves into content panel like the mockup */
-.dom-img-overlay,.dom-name-badge{display:none}
+/* Name overlay at bottom of photo */
+.dom-img-overlay{display:block}
+.dom-name-badge{position:absolute;bottom:0;left:0;right:3px;z-index:3;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.78) 70%,rgba(0,0,0,0) 100%);padding:36px 16px 14px;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.dom-name-badge-inner strong{display:block;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--wht);line-height:1.2}
+.dom-name-badge-inner span{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--grn);margin-top:3px;display:block}
+.dom-name-badge-icon{display:none}
 
 /* Right content panel */
 .dom-content-new{
@@ -839,10 +843,6 @@ a.lender-pill:hover{color:var(--grn);border-color:rgba(38,181,115,.5);background
     <div class="dom-content-new">
       <span class="tag">Meet Your Broker</span>
       <h2>Finance expertise you can <em>trust</em>, and a broker who genuinely cares.</h2>
-      <div class="dom-namerole">
-        <strong>Domenic Passalacqua</strong>
-        <span>Director &amp; Principal Finance Broker</span>
-      </div>
       <p class="dom-lead">With over 20 years navigating Australia's lending landscape, Domenic has helped hundreds of Adelaide families, investors, and business owners secure the finance they need to move forward with confidence.</p>
       <p class="dom-body">Domenic built Globe Financial on a simple belief: every client deserves a broker who takes the time to understand their full picture, not just the next transaction. His approach combines deep lender knowledge, strategic thinking, and straightforward communication that makes even complex lending feel manageable.</p>
 
